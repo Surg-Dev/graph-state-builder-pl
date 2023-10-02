@@ -1,0 +1,44 @@
+{{#question}}
+<div>
+    <details class="instructions rounded">
+
+        <summary> Tree Builder Instructions </summary>
+        <ul>
+            <li> <b>Double Click</b> to create the root. </li>
+            <li> <b>Shift + Drag</b> to create a child node. </li>
+            <ul>
+                <li> Release on the left side of the parent node to make a left child, and respectively for the right side to make the right child.  </li>
+            </ul>
+            <li> <b>Click</b> on a node to select and <b>Drag</b> to move it. </li>
+            <li> Press the <b>Delete</b> key (<b>Fn + Delete</b> on Mac) or <b>Right Click</b> to delete a selected Node. <b> Only leaf nodes may be deleted.</b> </li>
+        </ul>
+    </details>
+    </div>
+
+<div>
+    <canvas id="{{{answers_name}}}-tree-canvas" width="781" height="588">
+        <span class="error">Your browser does not support<br>the HTML5 &lt;canvas&gt; element</span>
+    </canvas>
+    <div class="btn-toolbar justify-content-end" role="toolbar">
+      <div class="btn-group">
+        <button id="{{{answers_name}}}-toggle-state-size" type="button" class="btn btn-secondary btn-sm" {{^editable}}disabled{{/editable}}>Toggle State Size</button>
+        <button id="{{{answers_name}}}-clear-tree" type="button" class="btn btn-danger btn-sm" {{^editable}}disabled{{/editable}}>Clear Tree</button>
+      </div>
+    </div>
+
+    <input id="{{{answers_name}}}-raw-json" name="{{{answers_name}}}-raw" type="hidden" {{^editable}}disabled{{/editable}}>
+    <script>
+        tree_builder_init("{{{answers_name}}}", '{{{display_json}}}', 
+        {{^editable}}false{{/editable}}{{#editable}}true{{/editable}})
+    </script>
+</div>
+{{/question}}
+
+{{#submission}}
+{{#parse_errors}}
+  <p><b>Error: </b>{{message}}</p>
+{{/parse_errors}}
+{{#feedback}}
+  {{{feedback}}}
+{{/feedback}}
+{{/submission}}

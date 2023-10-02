@@ -1,0 +1,12 @@
+{
+    "controller": "tree-builder.py",
+    "dependencies": {
+        "elementScripts": [
+            "tree-builder.js",
+            "tree-elements.js"
+        ],
+        "elementStyles": [
+            "tree-builder.css"
+        ]
+    }
+}
